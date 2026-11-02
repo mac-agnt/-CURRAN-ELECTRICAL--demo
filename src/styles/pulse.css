@@ -154,26 +154,27 @@ html,body{margin:0;padding:0;height:100%}
 --bloom-a:rgba(244,86,26,.44);--bloom-b:rgba(255,140,60,.3);--bloom-c:rgba(200,70,40,.26);--hero-field:rgba(16,12,10,.86);--records-card:rgba(14,11,9,.90);--chip:rgba(13,10,8,.82);--chip-border:rgba(255,255,255,.10);
 --hero-grad:linear-gradient(180deg,#0e0805 0%,#3a1405 18%,#7a2708 40%,#f4561a 60%,#a8380e 82%,#120b07 100%)}
 [data-theme="harbour"]{
---ui:"Geist",system-ui,sans-serif;--mono:"Geist",system-ui,sans-serif;--fig-weight:600;--card-r:24px;--cta-r:999px;--chip-r:999px;--panel:#0f1316;--r-ctl:999px;--r-md:16px;--r-sm:12px;--kpi-band:#101417;--kpi-card:#161b1e;--kpi-ink:#f3f5f4;--kpi-dim:#9aa39f;--kpi-up:#5ee79a;--kpi-down:#ef4b52;--rail-active:#1b2124;--rail-active-ink:#5ee79a;--rail-active-ring:inset 0 1px 0 rgba(255,255,255,.04);
---bg:#0b0e10;--rail:#0e1214;--surface:#13171a;--surface-2:#191e21;
---surface-strong:#161a1d;--overlay:rgba(19,23,26,.97);--tooltip:#1d2226;--tooltip-ink:#f3f5f4;
---border:rgba(255,255,255,.07);--border-strong:rgba(255,255,255,.14);--card-shadow:0 1px 0 rgba(255,255,255,.03) inset;
---ink:#f3f5f4;--body:#cdd4d0;--dim:#9aa39f;--faint:#6b7470;--mid:#838c88;
---accent:#5ee79a;--on-accent:#07170e;--on-accent-2:rgba(7,23,14,.66);--on-accent-strong:rgba(7,23,14,.86);--on-accent-soft:rgba(7,23,14,.22);
---accent-hover:#7ef0b0;--accent-soft:rgba(94,231,154,.16);--accent-faint:rgba(94,231,154,.07);--accent-line:rgba(94,231,154,.3);
---accent-fill:linear-gradient(90deg,#52e08c 0%,#8cf2b8 100%);--accent-glow:0 0 26px rgba(94,231,154,.28);
---ok:#5ee79a;--ok-soft:rgba(94,231,154,.13);--warn:#f0883e;--warn-soft:rgba(240,136,62,.15);--bad:#ef4b52;--bad-soft:rgba(239,75,82,.14);--bad-on-accent:#5c1418;--bad-on-accent-ink:#4e1014;
---neutral:rgba(255,255,255,.22);--track:#23292d;--scrim:rgba(5,7,8,.62);
---pill-bg:#1d2327;--pill-ink:#f3f5f4;--surface-faint:#101416;
---glass-surface:#161b1e;--glass-surface-2:#1b2124;--glass-border:rgba(255,255,255,.09);--glass-highlight:rgba(255,255,255,.05);--glass-shadow:rgba(0,0,0,.55);--glass-tint:rgba(94,231,154,.08);
---flap:linear-gradient(178deg,#1a1f22 0%,#15191c 49%,#101315 51%,#171b1e 100%);--flap-hinge:rgba(0,0,0,.6);--flap-notch:#0b0e10;
---glow-a:rgba(94,231,154,.06);--glow-b:rgba(59,159,232,.04);--grid:rgba(255,255,255,.02);--ease:cubic-bezier(.2,.8,.2,1);
---bloom-a:rgba(94,231,154,.36);--bloom-b:rgba(59,159,232,.28);--bloom-c:rgba(240,136,62,.22);--hero-field:#13171a;--records-card:#13171a;--chip:#13171a;--chip-border:rgba(255,255,255,.08);
---hero-grad:linear-gradient(180deg,#07100b 0%,#0b2616 22%,#10432a 46%,#1a7a48 64%,#0f3a24 84%,#0a0f0c 100%)}
+/* Joe Curran Electrical: brand accent #1c93e3 (joecurranelectrical.ie) on slate neutrals derived from their #192730 */
+--ui:"Geist",system-ui,sans-serif;--mono:"Geist",system-ui,sans-serif;--fig-weight:600;--card-r:24px;--cta-r:999px;--chip-r:999px;--panel:#0d1318;--r-ctl:999px;--r-md:16px;--r-sm:12px;--kpi-band:#0f161c;--kpi-card:#141d25;--kpi-ink:#f1f5f8;--kpi-dim:#94a3af;--kpi-up:#5ee79a;--kpi-down:#ef4b52;--rail-active:#172530;--rail-active-ink:#5fb6f2;--rail-active-ring:inset 0 1px 0 rgba(255,255,255,.04);
+--bg:#090d11;--rail:#0b1015;--surface:#111920;--surface-2:#17212a;
+--surface-strong:#141d25;--overlay:rgba(15,22,28,.97);--tooltip:#1b2630;--tooltip-ink:#f1f5f8;
+--border:rgba(190,215,235,.08);--border-strong:rgba(190,215,235,.16);--card-shadow:0 1px 0 rgba(255,255,255,.03) inset;
+--ink:#f1f5f8;--body:#c9d3db;--dim:#94a3af;--faint:#667684;--mid:#7f8f9c;
+--accent:#1c93e3;--on-accent:#04131d;--on-accent-2:rgba(4,19,29,.66);--on-accent-strong:rgba(4,19,29,.86);--on-accent-soft:rgba(4,19,29,.22);
+--accent-hover:#4aaaec;--accent-soft:rgba(28,147,227,.17);--accent-faint:rgba(28,147,227,.07);--accent-line:rgba(28,147,227,.36);
+--accent-fill:linear-gradient(90deg,#1c93e3 0%,#4db3f2 100%);--accent-glow:0 0 26px rgba(28,147,227,.30);
+--ok:#5ee79a;--ok-soft:rgba(94,231,154,.13);--warn:#f0a53e;--warn-soft:rgba(240,165,62,.15);--bad:#ef4b52;--bad-soft:rgba(239,75,82,.14);--bad-on-accent:#5c1418;--bad-on-accent-ink:#4e1014;
+--neutral:rgba(255,255,255,.22);--track:#212d37;--scrim:rgba(4,8,11,.64);
+--pill-bg:#1b2832;--pill-ink:#f1f5f8;--surface-faint:#0e151a;
+--glass-surface:#141d25;--glass-surface-2:#192530;--glass-border:rgba(190,215,235,.1);--glass-highlight:rgba(255,255,255,.05);--glass-shadow:rgba(0,0,0,.55);--glass-tint:rgba(28,147,227,.1);
+--flap:linear-gradient(178deg,#18222a 0%,#131b21 49%,#0e1418 51%,#151e25 100%);--flap-hinge:rgba(0,0,0,.6);--flap-notch:#090d11;
+--glow-a:rgba(28,147,227,.07);--glow-b:rgba(94,168,255,.04);--grid:rgba(255,255,255,.02);--ease:cubic-bezier(.2,.8,.2,1);
+--bloom-a:rgba(28,147,227,.38);--bloom-b:rgba(94,168,255,.26);--bloom-c:rgba(120,200,255,.2);--hero-field:#111920;--records-card:#111920;--chip:#111920;--chip-border:rgba(190,215,235,.09);
+--hero-grad:linear-gradient(180deg,#070d12 0%,#0a2034 22%,#0e3a5e 46%,#1773ad 64%,#0b2a44 84%,#090d11 100%)}
 [data-theme="light"] button[style*="background:var(--ink)"],[data-theme="light"] [style*="background-color:var(--ink)"]{background:#0071e3 !important;color:#fff !important}
 [data-theme="light"] [data-kpi-band]{--on-accent:#16181c;--on-accent-2:#6b7078;--on-accent-strong:#3d424a;--on-accent-soft:rgba(20,22,28,.08)}
 [data-theme="light"] [data-kpi-band] > * > div, [data-theme="light"] [data-kpi-band] [style*="var(--kpi-card)"]{box-shadow:0 0 0 1px rgba(20,22,28,.08),0 1px 3px rgba(20,22,28,.05)}
-[data-theme="harbour"] [data-kpi-band]{--on-accent:#f3f5f4;--on-accent-2:#7d8783;--on-accent-strong:#cdd4d0;--on-accent-soft:rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.06)}
+[data-theme="harbour"] [data-kpi-band]{--on-accent:#f1f5f8;--on-accent-2:#7d8c98;--on-accent-strong:#c9d3db;--on-accent-soft:rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.06)}
 [data-theme="cargo"]{
 --bg:#0a0a0a;--rail:rgba(255,255,255,.026);--surface:rgba(255,255,255,.042);--surface-2:rgba(255,255,255,.058);
 --surface-strong:rgba(20,21,20,.74);--overlay:rgba(18,19,18,.93);--tooltip:rgba(30,32,30,.98);--tooltip-ink:#eef3ee;

@@ -1,8 +1,20 @@
-# Pulse — Harbour
+# Pulse for Joe Curran Electrical Ltd
 
-React build of the **Pulse v5 Harbour** design from Claude Design, the operations dashboard mocked up for Kilbride Group.
+Frontend demo (mock data, no backend) of Pulse customised for Joe Curran Electrical, Toor, Waterville, Co. Kerry. Brand accent `#1c93e3` and slate neutrals come from joecurranelectrical.ie.
+The demo clock is fixed to Tue 10 Nov 2026, 09:20 and ticks from there.
 
-Every page, theme and interaction from the design is here. Screens were checked against the original mockup and match pixel for pixel at 1440×900 and 1024×720.
+## Where things live
+
+| Area | Where |
+| --- | --- |
+| Single source of truth (staff, customers, sites, systems, jobs, invoices, contracts, schedule) | `src/curran/core.ts`, `jobs.ts`, `ops.ts` |
+| Modules: Jobs, Schedule, Customers, Finance, Service Contracts, People, Knowledge | `src/curran/pages/` |
+| Technician field app | `src/curran/field/`, `pages/FieldHome.tsx` |
+| Stock Pulse page content (Home, Agents, Dashboard, Work, Records, Activity, Settings) | `src/logic/curranContent.js` |
+| Roles and permissions ("View Pulse as" in the sidebar) | `ROLES` in `src/curran/core.ts` |
+| Reconciliation check for every shared number | `node tools/verify-curran.mjs` |
+
+---
 
 ## Run it
 

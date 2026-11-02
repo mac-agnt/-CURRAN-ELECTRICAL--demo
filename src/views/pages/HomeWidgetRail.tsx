@@ -91,12 +91,43 @@ export default function HomeWidgetRail({ v }: Props) {
             </div>
           </>
         )}
+        {v.show?.kpi && (
+          <>
+            <div style={{"background":"var(--surface)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)","backdropFilter":"blur(20px) saturate(1.3)","boxShadow":"var(--card-shadow)","transition":"transform .28s var(--ease),border-color .24s var(--ease),box-shadow .28s var(--ease)","padding":"20px 22px 22px"}}>
+              <div style={{"display":"flex","alignItems":"center","gap":"10px"}}>
+                <div style={{"flex":"1","fontSize":"13.5px","fontWeight":"500"}}>
+                  {"Business snapshot"}
+                </div>
+                {v.widgetEdit && (
+                  <>
+                    <button className="ixd" onClick={v.removeKpi} title="Remove widget" style={{"width":"24px","height":"24px","flex":"none","border":"1px solid var(--border)","borderRadius":"8px","background":"var(--surface-2)","color":"var(--dim)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","transition":"color .2s var(--ease),border-color .2s var(--ease)"}}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+                        <path d="M6 6l12 12 M18 6 6 18" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+              </div>
+              <div style={{"marginTop":"8px"}}>
+                {arr(v.snapshot).map((k: any, i20: number) => (
+                  <Fragment key={i20}>
+                    <div style={{"display":"flex","alignItems":"baseline","gap":"10px","padding":"7px 0","borderTop":i20 ? "1px solid var(--border)" : "none"}}>
+                      <span style={{"flex":"1","minWidth":"0","fontSize":"12.5px","color":"var(--dim)"}}>{txt(k?.label)}</span>
+                      {k?.sub && <span style={{"fontSize":"11px","color":"var(--faint)"}}>{txt(k?.sub)}</span>}
+                      <span style={{"fontSize":"14px","fontWeight":"600","letterSpacing":"-.2px","fontVariantNumeric":"tabular-nums","color":"var(--ink)"}}>{txt(k?.value)}</span>
+                    </div>
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
         {v.show?.inbox && (
           <>
             <div style={{"background":"var(--surface)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)","backdropFilter":"blur(20px) saturate(1.3)","boxShadow":"var(--card-shadow)","transition":"transform .28s var(--ease),border-color .24s var(--ease),box-shadow .28s var(--ease)","padding":"20px 22px 10px"}}>
               <div style={{"display":"flex","alignItems":"center","gap":"10px"}}>
                 <div style={{"flex":"1","fontSize":"13.5px","fontWeight":"500"}}>
-                  {"Action inbox"}
+                  {"Needs attention"}
                 </div>
                 <span style={{"height":"24px","display":"flex","alignItems":"center","padding":"0 10px","background":"var(--surface-2)","border":"1px solid var(--border)","borderRadius":"var(--r-sm,9px)","fontFamily":"var(--mono)","fontSize":"11px","color":"var(--dim)"}}>
                   {txt(v.inboxCount)}
@@ -133,7 +164,7 @@ export default function HomeWidgetRail({ v }: Props) {
                 {v.inboxEmpty && (
                   <>
                     <div style={{"padding":"20px 0 24px","borderTop":"1px solid var(--border)","textAlign":"center","fontSize":"12.5px","color":"var(--dim)"}}>
-                      {"Nothing needs you."}
+                      {"Nothing needs you right now."}
                     </div>
                   </>
                 )}
@@ -183,49 +214,12 @@ export default function HomeWidgetRail({ v }: Props) {
             </div>
           </>
         )}
-        {v.show?.kpi && (
-          <>
-            <div style={{"background":"var(--surface)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)","backdropFilter":"blur(20px) saturate(1.3)","boxShadow":"var(--card-shadow)","transition":"transform .28s var(--ease),border-color .24s var(--ease),box-shadow .28s var(--ease)","padding":"20px 22px 22px"}}>
-              <div style={{"display":"flex","alignItems":"center","gap":"10px"}}>
-                <div style={{"flex":"1","fontSize":"13.5px","fontWeight":"500"}}>
-                  {"Today's numbers"}
-                </div>
-                {v.widgetEdit && (
-                  <>
-                    <button className="ixd" onClick={v.removeKpi} title="Remove widget" style={{"width":"24px","height":"24px","flex":"none","border":"1px solid var(--border)","borderRadius":"8px","background":"var(--surface-2)","color":"var(--dim)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","transition":"color .2s var(--ease),border-color .2s var(--ease)"}}>
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
-                        <path d="M6 6l12 12 M18 6 6 18" />
-                      </svg>
-                    </button>
-                  </>
-                )}
-              </div>
-              <div style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"10px","marginTop":"14px"}}>
-                {arr(v.miniKpis).map((k: any, i20: number) => (
-                  <Fragment key={i20}>
-                    <div style={{"padding":"13px 14px","background":"var(--surface-2)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)"}}>
-                      <div style={{"fontSize":"11.5px","color":"var(--dim)"}}>
-                        {txt(k?.label)}
-                      </div>
-                      <div style={{"fontSize":"19px","fontWeight":"500","letterSpacing":"-.6px","marginTop":"6px"}}>
-                        {txt(k?.value)}
-                      </div>
-                      <div style={css(cat("font-size:11px;color:", k?.deltaColor, ";margin-top:4px"))}>
-                        {txt(k?.delta)}
-                      </div>
-                    </div>
-                  </Fragment>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
         {v.show?.visits && (
           <>
             <div style={{"background":"var(--surface)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)","backdropFilter":"blur(20px) saturate(1.3)","boxShadow":"var(--card-shadow)","transition":"transform .28s var(--ease),border-color .24s var(--ease),box-shadow .28s var(--ease)","padding":"20px 22px 10px"}}>
               <div style={{"display":"flex","alignItems":"center","gap":"10px"}}>
                 <div style={{"flex":"1","fontSize":"13.5px","fontWeight":"500"}}>
-                  {"Site visits this week"}
+                  {"On site today"}
                 </div>
                 {v.widgetEdit && (
                   <>
@@ -260,11 +254,11 @@ export default function HomeWidgetRail({ v }: Props) {
             <div style={{"background":"var(--surface-strong)","border":"1px solid var(--border)","borderRadius":"var(--card-r,18px)","backdropFilter":"blur(20px) saturate(1.3)","boxShadow":"var(--card-shadow)","transition":"transform .28s var(--ease),border-color .24s var(--ease),box-shadow .28s var(--ease)","padding":"20px 22px 10px"}}>
               <div style={{"display":"flex","alignItems":"center","gap":"9px"}}>
                 <div style={{"flex":"1","fontSize":"13.5px","fontWeight":"500"}}>
-                  {"Activity"}
+                  {"AI handled"}
                 </div>
                 <span style={{"width":"6px","height":"6px","borderRadius":"2px","background":"var(--accent)"}} />
                 <span style={{"fontSize":"11.5px","color":"var(--dim)"}}>
-                  {"Events"}
+                  {"Today"}
                 </span>
                 {v.widgetEdit && (
                   <>

@@ -18,6 +18,10 @@ import AgentStudio from "./overlays/AgentStudio";
 import NewRecordDialog from "./overlays/NewRecordDialog";
 import CommandPalette from "./overlays/CommandPalette";
 import BackgroundGallery from "./overlays/BackgroundGallery";
+import CurranPage from "../curran/pages";
+import FieldHome from "../curran/pages/FieldHome";
+import RoleSwitch from "../curran/RoleSwitch";
+import RelationshipMap from "../curran/RelationshipMap";
 
 type Props = { v: any };
 
@@ -32,14 +36,14 @@ export default function AppShell({ v }: Props) {
         <span style={css(v.railThumbStyle)} />
         <div style={css(cat(v.railRowStyle, "margin-bottom:22px"))}>
           <button className={cx("ix0", "ix1")} onClick={v.toggleRail} title={v.railLabel} style={{"width":"36px","height":"36px","flex":"none","border":"0","borderRadius":"var(--cta-r,11px)","background":"var(--accent-fill,var(--accent))","color":"var(--on-accent)","boxShadow":"var(--accent-glow,none)","cursor":"pointer","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"13px","fontWeight":"600","padding":"0","transition":"transform .2s var(--ease)"}}>
-            {"K"}
+            {"JC"}
           </button>
           <span style={css(v.brandStyle)}>
-            <span style={{"display":"block","fontSize":"15px","fontWeight":"600","letterSpacing":"-.3px","color":"var(--ink)"}}>
-              {"Kilbride Group"}
+            <span style={{"display":"block","fontSize":"13px","fontWeight":"600","letterSpacing":"-.3px","color":"var(--ink)","whiteSpace":"nowrap"}}>
+              {"Joe Curran Electrical"}
             </span>
             <span style={{"display":"block","marginTop":"2px","fontSize":"9px","fontWeight":"500","letterSpacing":".16em","color":"var(--accent)"}}>
-              {"PULSE · OPERATIONS"}
+              {"PULSE"}
             </span>
           </span>
           {v.railOpen && (
@@ -96,17 +100,19 @@ export default function AppShell({ v }: Props) {
               </div>
               <div style={{"display":"flex","alignItems":"center","gap":"11px","marginTop":"12px"}}>
                 <div style={{"width":"40px","height":"40px","flex":"none","borderRadius":"999px","background":"var(--accent-soft)","color":"var(--accent)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"13px","fontWeight":"600"}}>
-                  {"MK"}
+                  {txt(v.me?.initials)}
                 </div>
                 <div style={{"minWidth":"0"}}>
                   <div style={{"fontSize":"17px","fontWeight":"600","letterSpacing":"-.3px","color":"var(--ink)","whiteSpace":"nowrap","overflow":"hidden","textOverflow":"ellipsis"}}>
-                    {"Martin Kilbride"}
+                    {txt(v.me?.name)}
                   </div>
                   <div style={{"fontSize":"12.5px","color":"var(--faint)","marginTop":"2px","whiteSpace":"nowrap","overflow":"hidden","textOverflow":"ellipsis"}}>
-                    {"Kilbride Group · Owner"}
+                    {txt(v.me?.title)}
                   </div>
                 </div>
               </div>
+              <RoleSwitch />
+              {v.canSettings && (
               <button className="ix4" onClick={v.goSettings} onPointerEnter={v.setBtnIn} onPointerLeave={v.setBtnOut} style={{"position":"relative","width":"100%","height":"46px","marginTop":"16px","display":"flex","alignItems":"center","gap":"10px","padding":"0 5px 0 16px","background":"var(--surface-2)","border":"1px solid var(--border)","borderRadius":"999px","color":"var(--ink)","fontSize":"14px","fontWeight":"600","letterSpacing":"-.1px","cursor":"pointer","overflow":"hidden","isolation":"isolate","boxShadow":"0 1px 0 rgba(255,255,255,.05) inset,0 2px 8px rgba(0,0,0,.18)","transition":"border-color .4s var(--ease)"}}>
                 <span style={css(v.setDotStyle)} />
                 <span style={css(v.setSheen)} />
@@ -128,10 +134,11 @@ export default function AppShell({ v }: Props) {
                   </svg>
                 </span>
               </button>
+              )}
             </div>
           </>
         )}
-        {v.railShut && (
+        {v.railShut && v.canSettings && (
           <>
             <button className="ix5" onClick={v.goSettings} onPointerEnter={v.enterSettings} onPointerLeave={v.leaveSettings} style={css(v.settingsStyle)}>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={css(v.settingsGlyphStyle)}>
@@ -143,14 +150,14 @@ export default function AppShell({ v }: Props) {
             </button>
             <div style={css(cat(v.railRowStyle, "margin-top:10px;padding:12px 10px;border-top:1px solid var(--border)"))}>
               <div style={{"width":"40px","height":"40px","flex":"none","borderRadius":"12px","background":"var(--surface-2)","border":"1px solid var(--border)","color":"var(--body)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"12px","fontWeight":"600","cursor":"pointer"}}>
-                {"MK"}
+                {txt(v.me?.initials)}
               </div>
               <span style={css(v.brandStyle)}>
                 <span style={{"display":"block","fontSize":"14px","fontWeight":"500","color":"var(--ink)"}}>
-                  {"Martin Kilbride"}
+                  {txt(v.me?.name)}
                 </span>
                 <span style={{"display":"block","marginTop":"2px","fontSize":"12px","color":"var(--faint)"}}>
-                  {"Kilbride Group · Owner"}
+                  {txt(v.me?.title)}
                 </span>
               </span>
             </div>
@@ -311,10 +318,10 @@ export default function AppShell({ v }: Props) {
                         <>
                           <div style={{"minWidth":"0"}}>
                             <div style={{"fontSize":"12px","fontWeight":"500","lineHeight":"1.2","whiteSpace":"nowrap"}}>
-                              {"Martin Kilbride"}
+                              {txt(v.me?.name)}
                             </div>
                             <div style={{"fontSize":"10.5px","color":"var(--faint)","lineHeight":"1.2"}}>
-                              {"Owner"}
+                              {txt(v.me?.title)}
                             </div>
                           </div>
                         </>
@@ -389,6 +396,8 @@ export default function AppShell({ v }: Props) {
         {v.isDashboard && <DashboardKpiBand v={v} />}
         <div data-scroll-main="1" style={{"flex":"1","minHeight":"0","overflowY":"auto","overflowX":"hidden","scrollbarWidth":"none"}}>
           {v.isChat && <Home v={v} />}
+          {v.fieldHome && <FieldHome v={v} />}
+          {v.isModule && <CurranPage v={v} />}
           {v.isWork && <Work v={v} />}
           {v.isRecords && <Records v={v} />}
           {v.rec?.isContacts && (
@@ -452,7 +461,7 @@ export default function AppShell({ v }: Props) {
                           {"No contacts match"}
                         </div>
                         <div style={{"fontSize":"13px","color":"var(--dim)","marginTop":"6px"}}>
-                          {"Try fewer words — it matches on name, role, organisation and tag."}
+                          {"Try fewer words, it matches on name, role, organisation and tag."}
                         </div>
                       </div>
                     </>
@@ -471,6 +480,7 @@ export default function AppShell({ v }: Props) {
           )}
           {v.rec?.isFiles && <RecordsFiles v={v} />}
           {v.rec?.isOntology && <RecordsOntology v={v} />}
+          {v.rec?.isRelationships && <RelationshipMap />}
           {v.isActivity && <Activity v={v} />}
           {v.act?.detailOpen && (
             <>
@@ -771,7 +781,7 @@ export default function AppShell({ v }: Props) {
                 <>
                   <div style={{"padding":"8px 24px 4px","animation":"expandIn .3s var(--ease) both"}}>
                     <div style={{"fontFamily":"var(--mono)","fontSize":"9.5px","letterSpacing":"0.13em","color":"var(--faint)","marginTop":"10px"}}>
-                      {"PULSE BUILT THIS — EDIT ANYTHING"}
+                      {"PULSE BUILT THIS, EDIT ANYTHING"}
                     </div>
                     <div style={{"marginTop":"14px"}}>
                       {arr(v.builder?.blocks).map((b: any, i145: number) => (
